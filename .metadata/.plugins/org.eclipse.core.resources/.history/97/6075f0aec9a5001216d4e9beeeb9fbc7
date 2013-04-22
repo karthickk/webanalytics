@@ -1,0 +1,47 @@
+var sys = require('sys'),
+    express = require('express'),
+    io = require('socket.io'); 
+
+var app = express();
+
+app.use(express.static(__dirname + '/public'));
+
+
+var db = require('mongoskin').db('localhost:27017/students'); 
+
+db.collection('grades').find().toArray(function(err, result) {
+    if (err) throw err;
+    
+    var val = {};
+    var ids = {};
+    result.forEach(function(value,index){
+    	var score = value.score;
+    	var sid = value.student_id;
+    	if(value.type === "homework"){
+    		if(val.hasOwnProperty(sid)){
+    			if(score  < val[sid]){
+    				val[sid]=score;
+    				ids[sid]=value._id;
+    			}
+    		}
+    		val[sid]=score;
+    		ids[sid]=value._id;
+    	}
+    	
+    	var id = ids[sid];
+    	var i =0;
+    	db.collection('grades').remove({_id:id},function(err,r){
+    		console.log(i++);
+    	});
+    });
+   
+    
+});
+
+
+app.get('/', function (req, res) {
+	  res.sendfile(__dirname + '/index.html');
+});
+
+
+app.listen(5000);

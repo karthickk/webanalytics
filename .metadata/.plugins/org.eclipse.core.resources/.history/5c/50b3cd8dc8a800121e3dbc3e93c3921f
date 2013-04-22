@@ -1,0 +1,70 @@
+<!Doctype>
+<html>
+<head>
+
+<script type="text/javascript" src ="/libs/jquery.1.9.1.js"></script>
+
+</head>
+
+<body>
+<!-- 
+<script type="text/javascript">
+//<![CDATA[
+var owa_baseUrl = 'http://your.domain.com/path/to/owa/';
+var owa_cmds = owa_cmds || [];
+owa_cmds.push(['setSiteId', 'your_site_id']);
+owa_cmds.push(['trackPageView']);
+owa_cmds.push(['trackClicks']);
+owa_cmds.push(['trackDomStream']);
+ 
+(function() {
+	var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
+	_owa.src = '/javascript/owa.js';
+	var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
+}());
+//]]>
+</script> -->
+
+<!-- <script type="text/javascript">
+//<![CDATA[
+           
+var bmsa = bmsa || [];
+bmsa.push(['doNotTrack',true]); //true or false
+bmsa.push(['trackClicks','div,span']); //selector or none
+bmsa.push(['trackPageView',true]);
+
+ 
+(function() {
+	var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
+	_owa.src = '/javascript/webAnalytics.js';
+	var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
+}());
+//]]>
+</script> -->
+
+<script>
+(function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] ||
+    function () {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'javascript/analytics.js', 'ga');
+
+ga('create', 'UA-XXXX-Y', {
+	  'storage': 'none',
+	  'clientId', '35009a79-1a05-49d7-b876-2b884d0f825b'
+	});
+ga('send', 'pageview');
+
+</script>
+
+<div>hello world!</div>
+
+
+</body>
+</html>

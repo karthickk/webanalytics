@@ -1,0 +1,42 @@
+var sys = require('sys'),
+    express = require('express'),
+    io = require('socket.io'); 
+
+var app = express();
+
+app.use(express.static(__dirname + '/public'));
+
+
+var db = require('mongoskin').db('localhost:27017/school'); 
+
+db.collection('students').find().toArray(function(err, result) {
+    if (err) throw err;
+    
+    var val ={};
+    result.forEach(function(v,i){
+    	var id = v._id;
+    	var scores = v.scores;
+    	scores.forEach(function(elem,index){
+    		if(elem.type === "homework"){
+    			if(val.hasOwnProperty(id)){
+    				var sc = val[id];
+    				if(sc > elem.score){
+    					val[id] = elem.score;
+    				}
+    			}else{
+    				val[id] = elem.score;
+    			}
+    			
+    		}
+    	});
+    	
+    });
+});
+
+
+app.get('/', function (req, res) {
+	  res.sendfile(__dirname + '/index.html');
+});
+
+
+app.listen(6000);

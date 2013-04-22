@@ -1,0 +1,49 @@
+<!Doctype>
+<html>
+<head>
+
+<script type="text/javascript" src ="/libs/jquery.1.9.1.js"></script>
+
+</head>
+
+<body>
+<!-- 
+<script type="text/javascript">
+//<![CDATA[
+var owa_baseUrl = 'http://your.domain.com/path/to/owa/';
+var owa_cmds = owa_cmds || [];
+owa_cmds.push(['setSiteId', 'your_site_id']);
+owa_cmds.push(['trackPageView']);
+owa_cmds.push(['trackClicks']);
+owa_cmds.push(['trackDomStream']);
+ 
+(function() {
+	var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
+	_owa.src = '/javascript/owa.js';
+	var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
+}());
+//]]>
+</script> -->
+
+<script type="text/javascript">
+//<![CDATA[
+           
+var bmsa = bmsa || [];
+bmsa.push(['doNotTrack',true]);
+bmsa.push(['trackClicks','div,span']);
+
+ 
+(function() {
+	var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
+	_owa.src = '/javascript/webAnalytics.js';
+	var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
+}());
+//]]>
+</script>
+
+
+<div>hello world!</div>
+
+
+</body>
+</html>
